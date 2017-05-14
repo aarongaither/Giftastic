@@ -12,15 +12,15 @@ $(document).on("click", ".gifBtn", function(){
     fetchGifs($(this).attr('data-player'))
 });
 
-$(document).on("click", ".gifImage", function(){
-    let state = $(this).attr('data-state');
-    if (state === 'still') {
-      $(this).attr('src', $(this).attr('data-anim'))
-      .attr('data-state', 'animate');
-    } else {
-      $(this).attr('src', $(this).attr('data-still'))
-      .attr('data-state', 'still');
-    }
+
+$(document).on("mouseenter", ".gifImage", function(){
+    $(this).attr('src', $(this).attr('data-anim'));
+    // .attr('data-state', 'animate');
+});
+
+$(document).on("mouseleave", ".gifImage", function(){
+    $(this).attr('src', $(this).attr('data-still'));
+    // .attr('data-state', 'still');
 });
 
 function fetchGifs (player) {
