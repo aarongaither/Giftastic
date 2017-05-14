@@ -24,3 +24,17 @@ body {
     clear: both;
     overflow: hidden;
 }
+
+.gifDiv {
+    display: inline-block;
+    background-color: white;
+    padding: 1%;
+    margin: 1%;
+}
+
+.gifImage {
+}
+
+.rating {
+    text-align: center;
+}
