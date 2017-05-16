@@ -7,14 +7,20 @@
     <title>Giftastic!</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Audiowide|Orbitron:700|Overpass+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Boogaloo" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container" id="main">
         <section class="row" id="buttonRow"></section>
-        <section class="row" id="formRow"></section>
+        <section class="row" id="formRow">
+            <form id="player-form">
+                 <label for="player-input">Add a player:</label>
+                 <input type="text" id="player-input" placeholder="Player Name">
+                 <input id="add-player" type="submit">
+             </form>
+        </section>
         <section class="row" id="gifRow"></section>
     </div>
     <script src="assets/javascript/app.js"></script>

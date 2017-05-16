@@ -1,28 +1,38 @@
 let players = ["Kawhi Leonard", "James Harden", "Russell Westbrook", "Lebron James", "Stephen Curry", "Kevin Durant", "Kyrie Irving"]
 
+//function to add buttons to page
 function makeBtns () {
     for (let i = 0; i < players.length; i++){
         $('#buttonRow').append($('<button>').addClass('gifBtn').attr('data-player', players[i]).text(players[i]));
     }
 }
 
+//click handler for player buttons
 $(document).on("click", ".gifBtn", function(){
     //clear any gifs on page
     $('#gifRow').empty();
     fetchGifs($(this).attr('data-player'))
 });
 
+//click handler for player input form submit
+$('#add-player').on("click", function(){
+    event.preventDefault();
+    let playerName = $('#player-input').val();
+    players.push(playerName);
+    $('#buttonRow').append($('<button>').addClass('gifBtn').attr('data-player', playerName).text(playerName));
+})
 
+//add mouse over effect to animate gif
 $(document).on("mouseenter", ".gifImage", function(){
     $(this).attr('src', $(this).attr('data-anim'));
-    // .attr('data-state', 'animate');
 });
 
+//on mouseleave return gif to still version
 $(document).on("mouseleave", ".gifImage", function(){
     $(this).attr('src', $(this).attr('data-still'));
-    // .attr('data-state', 'still');
 });
 
+//get gif, triggered on btn click
 function fetchGifs (player) {
     let queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
       player + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -32,7 +42,7 @@ function fetchGifs (player) {
     }).done(function(response) {
         console.log(response);
         for (let i = 0; i < response.data.length; i++){
-            //alias url vars
+            //alias url vars cause they're hella long
             let rating = response.data[i].rating;
             let still = response.data[i].images.fixed_height_still.url
             let anim = response.data[i].images.fixed_height.url
@@ -48,4 +58,5 @@ function fetchGifs (player) {
     })
 }
 
+//call the makeBtns func to populate the page
 makeBtns();
