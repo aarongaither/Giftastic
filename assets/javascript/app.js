@@ -34,8 +34,11 @@ $(document).on("mouseleave", ".gifImage", function(){
 
 //get gif, triggered on btn click
 function fetchGifs (player) {
+    let limit = $('#records').val();
+    let rating = $('#rating').val();
     let queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-      player + "&api_key=dc6zaTOxFJmzC&limit=10";
+      player + "&api_key=dc6zaTOxFJmzC&limit=" +
+      limit +"&rating=" + rating;
     $.ajax({
       url: queryURL,
       method: "GET"

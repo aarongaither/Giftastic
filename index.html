@@ -16,10 +16,25 @@
         <section class="row" id="buttonRow"></section>
         <section class="row" id="formRow">
             <form id="player-form">
-                 <label for="player-input">Add a player:</label>
-                 <input type="text" id="player-input" placeholder="Player Name">
-                 <input id="add-player" type="submit">
-             </form>
+                <label for="player-input">Add a player:</label>
+                <input type="text" id="player-input" placeholder="Player Name">
+                <input id="add-player" type="submit">
+                <label for="records">Gif Limit:</label>
+                <select class="form-control" id='records'>
+                    <option>5</option>
+                    <option selected>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                </select>
+                <label for="rating">Rating Limit:</label>
+                <select class="form-control" id='rating'>
+                    <option>y</option>
+                    <option>g</option>
+                    <option selected>pg</option>
+                    <option>pg-13</option>
+                    <option>r</option>
+                </select>
+            </form>
         </section>
         <section class="row" id="gifRow"></section>
     </div>
