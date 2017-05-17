@@ -9,7 +9,7 @@ function makeBtns () {
 
 
 function checkPlayer (lastName) {
-    let playerURL = "http://api.suredbits.com/nba/v0/players/";
+    let playerURL = "https://api.suredbits.com/nba/v0/players/";
     $.ajax({
       url: playerURL + lastName,
       method: "GET"
@@ -53,7 +53,7 @@ $(document).on("mouseleave", ".gifImage", function(){
 function fetchGifs (player) {
     let limit = $('#records').val();
     let rating = $('#rating').val();
-    let queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
       player + "&api_key=dc6zaTOxFJmzC&limit=" +
       limit +"&rating=" + rating;
     $.ajax({
