@@ -7,6 +7,19 @@ function makeBtns () {
     }
 }
 
+
+function checkPlayer (lastName) {
+    let playerURL = "http://api.suredbits.com/nba/v0/players/";
+    $.ajax({
+      url: playerURL + lastName,
+      method: "GET"
+    }).done(function(response) {
+        console.log("checkPlayer", response);
+        return response;
+    })
+
+}
+
 //click handler for player buttons
 $(document).on("click", ".gifBtn", function(){
     //clear any gifs on page
@@ -17,9 +30,13 @@ $(document).on("click", ".gifBtn", function(){
 //click handler for player input form submit
 $('#add-player').on("click", function(){
     event.preventDefault();
-    let playerName = $('#player-input').val();
-    players.push(playerName);
-    $('#buttonRow').append($('<button>').addClass('gifBtn').attr('data-player', playerName).text(playerName));
+    let playerName = $('#player-input').val().trim();
+    checkPlayer(playerName);
+    if (playerName !== '' && players.indexOf(playerName) === -1){
+        players.push(playerName);
+        $('#buttonRow').append($('<button>').addClass('gifBtn').attr('data-player', playerName).text(playerName));
+    }
+    $('#player-input').val('');
 })
 
 //add mouse over effect to animate gif
