@@ -8,18 +8,6 @@ function makeBtns () {
 }
 
 
-function checkPlayer (lastName) {
-    let playerURL = "https://api.suredbits.com/nba/v0/players/";
-    $.ajax({
-      url: playerURL + lastName,
-      method: "GET"
-    }).done(function(response) {
-        console.log("checkPlayer", response);
-        return response;
-    })
-
-}
-
 //click handler for player buttons
 $(document).on("click", ".gifBtn", function(){
     //clear any gifs on page
@@ -31,7 +19,6 @@ $(document).on("click", ".gifBtn", function(){
 $('#add-player').on("click", function(){
     event.preventDefault();
     let playerName = $('#player-input').val().trim();
-    checkPlayer(playerName);
     if (playerName !== '' && players.indexOf(playerName) === -1){
         players.push(playerName);
         $('#buttonRow').append($('<button>').addClass('gifBtn').attr('data-player', playerName).text(playerName));
