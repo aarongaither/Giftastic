@@ -8,14 +8,26 @@ function makeBtns () {
     }
 }
 
+//add mouse over effect to animate gif
+$(document).on("mouseenter", ".gifBtn", function(){
+    $(this).addClass('animated pulse');
+});
+
+//on mouseleave return gif to still version
+$(document).on("mouseleave", ".gifBtn", function(){
+    $(this).removeClass('animated pulse');
+});
+  
+
 
 //click handler for player buttons
 $(document).on("click", ".gifBtn", function(){
     //clear any gifs on page
     $('#gifRow').empty();
     fetchGifs($(this).attr('data-player'))
-    $('.active').removeClass('active');
-    $(this).addClass('active');
+    $('.lightSpeedIn').removeClass('lightSpeedIn');
+    $('.active').removeClass('active animated rubberBand');
+    $(this).addClass('active animated rubberBand');
 });
 
 //click handler for player input form submit
@@ -24,9 +36,10 @@ $('#add-player').on("click", function(){
     let playerName = $('#player-input').val().trim();
     if (playerName !== '' && players.indexOf(playerName) === -1){
         players.push(playerName);
-        $('#buttonRow').append($('<button>').addClass('gifBtn').attr('data-player', playerName).text(playerName));
+        $('#buttonRow').append($('<button>').addClass('gifBtn animated lightSpeedIn').attr('data-player', playerName).text(playerName));
     }
     $('#player-input').val('');
+
 })
 
 //add mouse over effect to animate gif
@@ -57,7 +70,7 @@ function fetchGifs (player) {
             let still = response.data[i].images.fixed_height_still.url
             let anim = response.data[i].images.fixed_height.url
             //create elements, assign attributes
-            let gifDiv = $('<div>').addClass('gifDiv');
+            let gifDiv = $('<div>').addClass('gifDiv animated flipInX');
             let ratingElem = $('<p>').addClass('rating').text("Rating: " + rating);
             let gifElem = $('<img>').addClass('gifImage').attr('src', still )
             gifElem.attr('data-anim', anim).attr('data-still', still).attr('data-state', 'still');

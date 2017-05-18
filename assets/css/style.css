@@ -65,7 +65,7 @@ header {
     border-width: 0px 0px 3px 0px;
     margin: 1% 1%;
     cursor: pointer;
-    transition: border 1s ease, background 1s ease;
+    transition: border 1s ease, background 2s ease;
 }
 
 .gifBtn:hover:not(.active) {
