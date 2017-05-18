@@ -1,4 +1,5 @@
-let players = ["Kawhi Leonard", "James Harden", "Russell Westbrook", "Lebron James", "Stephen Curry", "Kevin Durant", "Kyrie Irving"]
+let players = ["Kawhi Leonard", "James Harden", "Russell Westbrook", "Lebron James", "Stephen Curry", "Kevin Durant", "Kyrie Irving",
+                "Paul George", "Damian Lillard", "John Wall", "Isaiah Thomas", "Chris Paul"];
 
 //function to add buttons to page
 function makeBtns () {
@@ -13,6 +14,8 @@ $(document).on("click", ".gifBtn", function(){
     //clear any gifs on page
     $('#gifRow').empty();
     fetchGifs($(this).attr('data-player'))
+    $('.active').removeClass('active');
+    $(this).addClass('active');
 });
 
 //click handler for player input form submit

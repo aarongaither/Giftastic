@@ -7,33 +7,40 @@
     <title>Giftastic!</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Boogaloo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <header>NBA Players via GIPHY</header>
+    <section class="row" id="buttonRowBack">
+        <div class="container" id="buttonRow"></div>
+    </section>
     <div class="container" id="main">
-        <section class="row" id="buttonRow"></section>
         <section class="row" id="formRow">
             <form id="player-form">
-                <label for="player-input">Add a player:</label>
-                <input type="text" id="player-input" placeholder="Player Name">
-                <input id="add-player" type="submit">
-                <label for="records">Gif Limit:</label>
-                <select class="form-control" id='records'>
-                    <option>5</option>
-                    <option selected>10</option>
-                    <option>25</option>
-                    <option>50</option>
-                </select>
-                <label for="rating">Rating Limit:</label>
-                <select class="form-control" id='rating'>
-                    <option>y</option>
-                    <option>g</option>
-                    <option selected>pg</option>
-                    <option>pg-13</option>
-                    <option>r</option>
-                </select>
+                <div class="row gifForm">
+                    <label for="player-input">Add a player:</label>
+                    <input type="text" id="player-input" placeholder="Player Name">
+                    <input id="add-player" type="submit">
+                </div>
+                <div class="row gifForm">
+                    <label for="records">Gif Limit:</label>
+                    <select class="form-control" id='records'>
+                        <option>5</option>
+                        <option selected>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                    <label for="rating">Rating Limit:</label>
+                    <select class="form-control" id='rating'>
+                        <option>y</option>
+                        <option>g</option>
+                        <option selected>pg</option>
+                        <option>pg-13</option>
+                        <option>r</option>
+                    </select>
+                </div>
             </form>
         </section>
         <section class="row" id="gifRow"></section>
